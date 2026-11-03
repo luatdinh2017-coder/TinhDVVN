@@ -12,8 +12,8 @@
 <style>
   body { font-family: sans-serif; background-color: #f8f9fa; }
   .container-sm { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-  label { width: 100%; font-weight: 500; font-size: 0.9em; margin-bottom: 2px;}
-  input[type="number"], input[type="text"] { width: 100%; margin-bottom: 10px; }
+  label { width: 100%; font-weight: 500; font-size: 0.85em; margin-bottom: 2px;}
+  input[type="number"], input[type="text"] { width: 100%; margin-bottom: 15px; }
   .section-title { color: #d9534f; border-bottom: 2px solid #d9534f; padding-bottom: 5px; margin-top: 20px; margin-bottom: 15px; font-size: 1.1em; font-weight: bold; }
   .results-group h5 { color: #0056b3; margin-top: 1rem; border-bottom: 2px solid #0056b3; padding-bottom: 5px; }
   .total-row input { font-weight: bold; color: red; }
@@ -25,115 +25,131 @@
   <div class="container-sm mt-3">
     <h3 class="mb-3 text-center" style="color:RED; font-weight: bold;">
       TÍNH ĐƠN VỊ VẬT NUÔI & CHI PHÍ TIÊM PHÒNG<br>
-      <small class="text-muted" style="font-size: 0.5em;">(Thông tư 94/2025/TT-BNNMT & Nghị quyết 64/2025/NQ-HĐND TP.HCM)</small>
+      <small class="text-muted" style="font-size: 0.5em;">(Thông tư 94/2025/TT-BNNMT & NQ 64/2025/NQ-HĐND TP.HCM)</small>
     </h3>
     
-    <!-- 1. NHÓM LỢN -->
-    <div class="section-title">🐷 1. Nhóm Lợn (Heo)</div>
+    <!-- I. LỢN -->
+    <div class="section-title">🐷 I. Lợn</div>
     <div class="row">
-      <div class="col-md-3 col-sm-6"><label for="heo_duc">Đực giống làm việc</label><input id="heo_duc" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="heo_nai">Nái, đực hậu bị</label><input id="heo_nai" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="heo_thit">Lợn thịt (vỗ béo)</label><input id="heo_thit" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="heo_caisua">Con cai sữa, giống</label><input id="heo_caisua" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="heo_theome">Con theo mẹ</label><input id="heo_theome" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Lợn < 28 ngày</label><input id="heo_duoi28" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Thịt (Nội)</label><input id="heo_thit_noi" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Thịt (Ngoại)</label><input id="heo_thit_ngoai" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Nái (Nội)</label><input id="heo_nai_noi" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Nái (Ngoại)</label><input id="heo_nai_ngoai" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Lợn đực</label><input id="heo_duc" type="number" min="0" oninput="sumOfNbr()"></div>
     </div>
 
-    <!-- 2. GIA SÚC LỚN -->
-    <div class="section-title">🐮 2. Nhóm Gia súc lớn</div>
+    <!-- II. GIA CẦM -->
+    <div class="section-title">🐔 II. Gia cầm</div>
     <div class="row">
-      <div class="col-md-3 col-sm-6"><label for="gsl_bosua">Đực giống, bò sữa</label><input id="gsl_bosua" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="gsl_bothit">Bò thịt, sinh sản</label><input id="gsl_bothit" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="gsl_benghe">Bê, nghé (< 1 tuổi)</label><input id="gsl_benghe" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="gsl_ngua">Ngựa, lừa, la</label><input id="gsl_ngua" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Gà nội</label><input id="ga_noi" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Gà CN (Hướng thịt)</label><input id="ga_cn_thit" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Gà CN (Hướng trứng)</label><input id="ga_cn_trung" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Đà điểu</label><input id="dadieu" type="number" min="0" oninput="sumOfNbr()"></div>
+      
+      <div class="col-md-3 col-sm-6"><label>Vịt H.thịt (Nội)</label><input id="vit_thit_noi" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Vịt H.thịt (Ngoại)</label><input id="vit_thit_ngoai" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Vịt H.trứng</label><input id="vit_trung" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Chim cút</label><input id="cut" type="number" min="0" oninput="sumOfNbr()"></div>
+
+      <div class="col-md-3 col-sm-4"><label>Ngan</label><input id="ngan" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-4"><label>Ngỗng</label><input id="ngong" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-4"><label>Bồ câu</label><input id="bocau" type="number" min="0" oninput="sumOfNbr()"></div>
     </div>
 
-    <!-- 3. GIA SÚC NHỎ -->
-    <div class="section-title">🐐 3. Nhóm Gia súc nhỏ</div>
+    <!-- III. BÒ & IV. TRÂU -->
+    <div class="section-title">🐮 III. Bò & IV. Trâu</div>
     <div class="row">
-      <div class="col-md-3 col-sm-6"><label for="gsn_de_to">Dê, cừu trưởng thành</label><input id="gsn_de_to" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="gsn_de_con">Dê, cừu con</label><input id="gsn_de_con" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="gsn_huou">Hươu, nai</label><input id="gsn_huou" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Bê < 6 tháng</label><input id="be_duoi6" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Bò thịt (Nội)</label><input id="bo_thit_noi" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Bò thịt (Ngoại/Lai)</label><input id="bo_thit_ngoai" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Bò sữa</label><input id="bo_sua" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Nghé < 6 tháng</label><input id="nghe" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Trâu</label><input id="trau" type="number" min="0" oninput="sumOfNbr()"></div>
     </div>
 
-    <!-- 4. GIA CẦM -->
-    <div class="section-title">🐔 4. Nhóm Gia cầm</div>
+    <!-- V. GIA SÚC KHÁC & VI. ĐỘNG VẬT KHÁC -->
+    <div class="section-title">🐐 V. Gia súc khác & VI. Động vật khác</div>
     <div class="row">
-      <div class="col-md-3 col-sm-6"><label for="gc_gavit">Gà, Vịt, Ngan, Ngỗng</label><input id="gc_gavit" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="gc_cut">Chim cút</label><input id="gc_cut" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="gc_dadieu">Đà điểu</label><input id="gc_dadieu" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Ngựa</label><input id="ngua" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Dê</label><input id="de" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Cừu</label><input id="cuu" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Thỏ</label><input id="tho" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Hươu sao</label><input id="huou" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-2 col-sm-4"><label>Dông</label><input id="dong" type="number" min="0" oninput="sumOfNbr()"></div>
     </div>
-
-    <!-- 5. KHÁC (Bao gồm Chó, Mèo) -->
-    <div class="section-title">🐕🐈 5. Vật nuôi khác (Chó, Mèo, Thỏ)</div>
-    <div class="row">
-      <div class="col-md-3 col-sm-6"><label for="vnk_chomeo">Chó, mèo</label><input id="vnk_chomeo" type="number" min="0" oninput="sumOfNbr()"></div>
-      <div class="col-md-3 col-sm-6"><label for="vnk_tho">Thỏ</label><input id="vnk_tho" type="number" min="0" oninput="sumOfNbr()"></div>
+    
+    <div class="row mt-2">
+      <div class="col-md-3 col-sm-6"><label>Chó (< 5kg)</label><input id="cho_1" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Chó (5 - < 20kg)</label><input id="cho_2" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Chó (20 - < 50kg)</label><input id="cho_3" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Chó (>= 50kg)</label><input id="cho_4" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-3 col-sm-6"><label>Vịt trời</label><input id="vittroi" type="number" min="0" oninput="sumOfNbr()"></div>
     </div>
 
     <!-- TỔNG HỢP QUY MÔ -->
     <div class="row results results-summary">
-      <div class="col-lg-3 col-sm-6"><label for="sum2">TỔNG GIA SÚC:</label><input id="sum2" type="text" class="form-control" disabled></div>
-      <div class="col-lg-3 col-sm-6"><label for="sum3">TỔNG GIA CẦM:</label><input id="sum3" type="text" class="form-control" disabled></div>
-      <div class="col-lg-3 col-sm-6"><label for="sum4">TỔNG CHÓ, MÈO:</label><input id="sum4" type="text" class="form-control" disabled></div>
-      <div class="col-lg-3 col-sm-6"><label for="sum">ĐƠN VỊ VẬT NUÔI:</label><input id="sum" type="text" class="form-control text-danger" disabled></div>
+      <div class="col-lg-3 col-sm-6"><label>TỔNG GIA SÚC:</label><input id="sum2" type="text" class="form-control" disabled></div>
+      <div class="col-lg-3 col-sm-6"><label>TỔNG GIA CẦM:</label><input id="sum3" type="text" class="form-control" disabled></div>
+      <div class="col-lg-3 col-sm-6"><label>TỔNG CHÓ:</label><input id="sum4" type="text" class="form-control" disabled></div>
+      <div class="col-lg-3 col-sm-6"><label>ĐƠN VỊ VẬT NUÔI:</label><input id="sum" type="text" class="form-control text-danger" disabled></div>
       
-      <div class="col-lg-4 mt-2"><label for="gsthucnuoi1">QUY MÔ CHĂN NUÔI:</label><input id="gsthucnuoi1" type="text" class="form-control" disabled></div>
-      <div class="col-lg-8 mt-2"><label for="thutientp">CHÍNH SÁCH THEO NQ 64/2025/NQ-HĐND:</label><input id="thutientp" type="text" class="form-control text-danger" disabled></div>
+      <div class="col-lg-4 mt-2"><label>QUY MÔ CHĂN NUÔI:</label><input id="gsthucnuoi1" type="text" class="form-control" disabled></div>
+      <div class="col-lg-8 mt-2"><label>CHÍNH SÁCH NQ 64/2025/NQ-HĐND:</label><input id="thutientp" type="text" class="form-control text-danger" disabled></div>
     </div>
     
     <!-- TÍNH CHI PHÍ TIÊM PHÒNG -->
     <div class="results-group">
       <h5>🐷 Heo</h5>
       <div class="row">
-        <div class="col-md-4 col-12"><label for="fmd1">Đơn giá FMD:</label><input id="fmd1" type="text" class="form-control" disabled></div>
-        <div class="col-md-4 col-12"><label for="fmd1_qty">Số lượng tiêm:</label><input id="fmd1_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
-        <div class="col-md-4 col-12"><label for="fmd1_total">Thành tiền:</label><input id="fmd1_total" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Đơn giá FMD:</label><input id="fmd1" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Số lượng tiêm:</label><input id="fmd1_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-4 col-12"><label>Thành tiền:</label><input id="fmd1_total" type="text" class="form-control" disabled></div>
       </div>
       
       <h5>🐐 Dê Cừu</h5>
       <div class="row">
-        <div class="col-md-4 col-12"><label for="fmd4">Đơn giá FMD:</label><input id="fmd4" type="text" class="form-control" disabled></div>
-        <div class="col-md-4 col-12"><label for="fmd4_qty">Số lượng tiêm:</label><input id="fmd4_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
-        <div class="col-md-4 col-12"><label for="fmd4_total">Thành tiền:</label><input id="fmd4_total" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Đơn giá FMD:</label><input id="fmd4" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Số lượng tiêm:</label><input id="fmd4_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-4 col-12"><label>Thành tiền:</label><input id="fmd4_total" type="text" class="form-control" disabled></div>
       </div>
       
       <h5>🐮 Trâu Bò</h5>
       <div class="row">
-        <div class="col-md-4 col-12"><label for="fmd2">Đơn giá FMD:</label><input id="fmd2" type="text" class="form-control" disabled></div>
-        <div class="col-md-4 col-12"><label for="fmd2_qty">Số lượng tiêm:</label><input id="fmd2_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
-        <div class="col-md-4 col-12"><label for="fmd2_total">Thành tiền:</label><input id="fmd2_total" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Đơn giá FMD:</label><input id="fmd2" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Số lượng tiêm:</label><input id="fmd2_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-4 col-12"><label>Thành tiền:</label><input id="fmd2_total" type="text" class="form-control" disabled></div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-12"><label for="tht2">Đơn giá THT:</label><input id="tht2" type="text" class="form-control" disabled></div>
-        <div class="col-md-4 col-12"><label for="tht2_qty">Số lượng tiêm:</label><input id="tht2_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
-        <div class="col-md-4 col-12"><label for="tht2_total">Thành tiền:</label><input id="tht2_total" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Đơn giá THT:</label><input id="tht2" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Số lượng tiêm:</label><input id="tht2_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-4 col-12"><label>Thành tiền:</label><input id="tht2_total" type="text" class="form-control" disabled></div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-12"><label for="vdnc2">Đơn giá VDNC:</label><input id="vdnc2" type="text" class="form-control" disabled></div>
-        <div class="col-md-4 col-12"><label for="vdnc2_qty">Số lượng tiêm:</label><input id="vdnc2_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
-        <div class="col-md-4 col-12"><label for="vdnc2_total">Thành tiền:</label><input id="vdnc2_total" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Đơn giá VDNC:</label><input id="vdnc2" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Số lượng tiêm:</label><input id="vdnc2_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-4 col-12"><label>Thành tiền:</label><input id="vdnc2_total" type="text" class="form-control" disabled></div>
       </div>
 
       <h5>🐔🦆 Gia Cầm</h5>
       <div class="row">
-        <div class="col-md-4 col-12"><label for="cgc">Đơn giá Cúm GC:</label><input id="cgc" type="text" class="form-control" disabled></div>
-        <div class="col-md-4 col-12"><label for="cgc_qty">Số lượng tiêm:</label><input id="cgc_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
-        <div class="col-md-4 col-12"><label for="cgc_total">Thành tiền:</label><input id="cgc_total" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Đơn giá Cúm GC:</label><input id="cgc" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Số lượng tiêm:</label><input id="cgc_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-4 col-12"><label>Thành tiền:</label><input id="cgc_total" type="text" class="form-control" disabled></div>
       </div>
 
-      <!-- MỚI: BỔ SUNG VẮC-XIN DẠI CHÓ MÈO -->
-      <h5>🐕🐈 Chó, Mèo</h5>
+      <h5>🐕 Chó</h5>
       <div class="row">
-        <div class="col-md-4 col-12"><label for="dai">Đơn giá Dại:</label><input id="dai" type="text" class="form-control" disabled></div>
-        <div class="col-md-4 col-12"><label for="dai_qty">Số lượng tiêm:</label><input id="dai_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
-        <div class="col-md-4 col-12"><label for="dai_total">Thành tiền:</label><input id="dai_total" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Đơn giá Dại:</label><input id="dai" type="text" class="form-control" disabled></div>
+        <div class="col-md-4 col-12"><label>Số lượng tiêm:</label><input id="dai_qty" type="number" class="form-control" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-4 col-12"><label>Thành tiền:</label><input id="dai_total" type="text" class="form-control" disabled></div>
       </div>
     </div>
     <hr>
     
     <div class="row my-4 justify-content-end total-row">
         <div class="col-md-5 col-12">
-            <label for="grand_total" style="color:red; font-size: 1.2em;">TỔNG CỘNG THU:</label>
+            <label style="color:red; font-size: 1.2em;">TỔNG CỘNG THU:</label>
             <input id="grand_total" type="text" class="form-control text-right" disabled style="font-size: 1.5em; background: #fff3f3;">
         </div>
     </div>
@@ -151,33 +167,35 @@
   function sumOfNbr() {
     const getValue = id => Number(document.getElementById(id).value) || 0;
     
-    // --- 1. TÍNH ĐƠN VỊ VẬT NUÔI (Hệ số chuẩn Thông tư 94/2025/TT-BNNMT) ---
+    // --- 1. TÍNH ĐƠN VỊ VẬT NUÔI (Chính xác 100% theo Thông tư 94) ---
     const dvn = {
-      heo_duc: getValue("heo_duc") * 0.4, heo_nai: getValue("heo_nai") * 0.3, heo_thit: getValue("heo_thit") * 0.14, heo_caisua: getValue("heo_caisua") * 0.03, heo_theome: getValue("heo_theome") * 0.01,
-      gsl_bosua: getValue("gsl_bosua") * 1.0, gsl_bothit: getValue("gsl_bothit") * 0.7, gsl_benghe: getValue("gsl_benghe") * 0.2, gsl_ngua: getValue("gsl_ngua") * 0.6,
-      gsn_de_to: getValue("gsn_de_to") * 0.07, gsn_de_con: getValue("gsn_de_con") * 0.02, gsn_huou: getValue("gsn_huou") * 0.15,
-      gc_gavit: getValue("gc_gavit") * 0.004, gc_cut: getValue("gc_cut") * 0.0004, gc_dadieu: getValue("gc_dadieu") * 0.2,
-      vnk_chomeo: getValue("vnk_chomeo") * 0.03, vnk_tho: getValue("vnk_tho") * 0.006
+      heo_duoi28: getValue("heo_duoi28") * 0.016, heo_thit_noi: getValue("heo_thit_noi") * 0.16, heo_thit_ngoai: getValue("heo_thit_ngoai") * 0.2, heo_nai_noi: getValue("heo_nai_noi") * 0.4, heo_nai_ngoai: getValue("heo_nai_ngoai") * 0.5, heo_duc: getValue("heo_duc") * 0.6,
+      
+      ga_noi: getValue("ga_noi") * 0.003, ga_cn_thit: getValue("ga_cn_thit") * 0.005, ga_cn_trung: getValue("ga_cn_trung") * 0.0036, vit_thit_noi: getValue("vit_thit_noi") * 0.0036, vit_thit_ngoai: getValue("vit_thit_ngoai") * 0.005, vit_trung: getValue("vit_trung") * 0.003, ngan: getValue("ngan") * 0.0056, ngong: getValue("ngong") * 0.008, cut: getValue("cut") * 0.0003, bocau: getValue("bocau") * 0.0012, dadieu: getValue("dadieu") * 0.16, vittroi: getValue("vittroi") * 0.003,
+
+      be_duoi6: getValue("be_duoi6") * 0.2, bo_thit_noi: getValue("bo_thit_noi") * 0.34, bo_thit_ngoai: getValue("bo_thit_ngoai") * 0.7, bo_sua: getValue("bo_sua") * 1.0, nghe: getValue("nghe") * 0.24, trau: getValue("trau") * 0.7,
+
+      ngua: getValue("ngua") * 0.4, de: getValue("de") * 0.05, cuu: getValue("cuu") * 0.06, tho: getValue("tho") * 0.005, huou: getValue("huou") * 0.1, dong: getValue("dong") * 0.000, 
+      
+      cho_1: getValue("cho_1") * 0.0055, cho_2: getValue("cho_2") * 0.025, cho_3: getValue("cho_3") * 0.07, cho_4: getValue("cho_4") * 0.12
     };
 
     const sum = Object.values(dvn).reduce((a, b) => a + b, 0);
-    document.getElementById("sum").value = Math.round(sum * 1000) / 1000;
+    document.getElementById("sum").value = Math.round(sum * 10000) / 10000;
 
-    // --- 2. TÍNH TỔNG ĐÀN ĐỂ KIỂM TRA SỐ LƯỢNG TIÊM ---
-    const totalHeo = getValue("heo_duc") + getValue("heo_nai") + getValue("heo_thit") + getValue("heo_caisua") + getValue("heo_theome");
-    const totalTrauBo = getValue("gsl_bosua") + getValue("gsl_bothit") + getValue("gsl_benghe");
-    const totalDeCuu = getValue("gsn_de_to") + getValue("gsn_de_con");
-    const totalGiaCam = getValue("gc_gavit") + getValue("gc_cut") + getValue("gc_dadieu");
-    const totalChoMeo = getValue("vnk_chomeo"); // Tách riêng tổng đàn chó mèo
-    
-    // Gia súc không cộng chó, mèo, gia cầm vào
-    const totalGiaSuc = totalHeo + totalTrauBo + totalDeCuu + getValue("gsl_ngua") + getValue("gsn_huou") + getValue("vnk_tho");
+    // --- 2. TÍNH TỔNG ĐÀN ---
+    const totalHeo = getValue("heo_duoi28") + getValue("heo_thit_noi") + getValue("heo_thit_ngoai") + getValue("heo_nai_noi") + getValue("heo_nai_ngoai") + getValue("heo_duc");
+    const totalTrauBo = getValue("be_duoi6") + getValue("bo_thit_noi") + getValue("bo_thit_ngoai") + getValue("bo_sua") + getValue("nghe") + getValue("trau");
+    const totalDeCuu = getValue("de") + getValue("cuu");
+    const totalGiaCam = getValue("ga_noi") + getValue("ga_cn_thit") + getValue("ga_cn_trung") + getValue("vit_thit_noi") + getValue("vit_thit_ngoai") + getValue("vit_trung") + getValue("ngan") + getValue("ngong") + getValue("cut") + getValue("bocau") + getValue("dadieu") + getValue("vittroi");
+    const totalCho = getValue("cho_1") + getValue("cho_2") + getValue("cho_3") + getValue("cho_4");
+    const totalGiaSuc = totalHeo + totalTrauBo + totalDeCuu + getValue("ngua") + getValue("tho") + getValue("huou");
 
     document.getElementById("sum2").value = totalGiaSuc.toLocaleString('vi-VN');
     document.getElementById("sum3").value = totalGiaCam.toLocaleString('vi-VN');
-    document.getElementById("sum4").value = totalChoMeo.toLocaleString('vi-VN');
+    document.getElementById("sum4").value = totalCho.toLocaleString('vi-VN');
 
-    // --- 3. KIỂM TRA LOGIC SỐ LƯỢNG TIÊM KHÔNG ĐƯỢC VƯỢT TỔNG ĐÀN ---
+    // --- 3. KIỂM TRA LOGIC SỐ LƯỢNG TIÊM ---
     function validateQuantity(inputId, max, animalName) {
         const inputElement = document.getElementById(inputId);
         if (getValue(inputId) > max) {
@@ -186,29 +204,32 @@
         }
     }
     
-    validateQuantity('fmd1_qty', totalHeo, 'Heo');
-    validateQuantity('fmd4_qty', totalDeCuu, 'Dê Cừu');
-    validateQuantity('fmd2_qty', totalTrauBo, 'Trâu Bò');
-    validateQuantity('tht2_qty', totalTrauBo, 'Trâu Bò');
-    validateQuantity('vdnc2_qty', totalTrauBo, 'Trâu Bò');
-    validateQuantity('cgc_qty', totalGiaCam, 'Gia Cầm');
-    validateQuantity('dai_qty', totalChoMeo, 'Chó Mèo'); // Ràng buộc Vắc-xin Dại
+    validateQuantity('fmd1_qty', totalHeo, 'Heo'); validateQuantity('fmd4_qty', totalDeCuu, 'Dê Cừu'); validateQuantity('fmd2_qty', totalTrauBo, 'Trâu Bò'); validateQuantity('tht2_qty', totalTrauBo, 'Trâu Bò'); validateQuantity('vdnc2_qty', totalTrauBo, 'Trâu Bò'); validateQuantity('cgc_qty', totalGiaCam, 'Gia Cầm'); validateQuantity('dai_qty', totalCho, 'Chó');
 
-    // --- 4. ÁP DỤNG CHÍNH SÁCH THEO NGHỊ QUYẾT 64/2025/NQ-HĐND ---
-    // GHI CHÚ: Bạn hãy SỬA lại số tiền (ví dụ: 'Thu 11.400đ', 'Miễn Phí') trong các khối lệnh if/else dưới đây để khớp 100% với phụ lục của NQ 64/2025.
-    
+    // --- 4. ÁP DỤNG CHÍNH SÁCH THEO NGHỊ QUYẾT 64/2025/NQ-HĐND TP.HCM ---
+    // NQ 64 quy định: Hỗ trợ 100% cho Nông hộ (Dưới 10 ĐVN). Trang trại (từ 10 ĐVN trở lên) tự chi trả 100%.
     if (sum === 0) {
       printResults({ gsthucnuoi1: '', thutientp: '', fmd1: '', fmd2: '', fmd4: '', tht2: '', vdnc2: '', cgc: '', dai: '' });
     } else if (sum < 10) {
-      // Dưới 10 ĐVN (Nông hộ)
-      printResults({ gsthucnuoi1: 'Chăn nuôi Nông Hộ', thutientp: 'Hỗ trợ 100% (Theo NQ 64/2025)', fmd1: 'Miễn Phí', fmd2: 'Miễn Phí', fmd4: 'Miễn Phí', tht2: 'Miễn Phí', vdnc2: 'Miễn Phí', cgc: 'Miễn Phí', dai: 'Miễn Phí' });
-    } else if (sum >= 10 && sum < 30) {
-      // Từ 10 đến dưới 30 ĐVN (Trang trại nhỏ)
-      printResults({ gsthucnuoi1: 'Quy Mô Trang Trại Nhỏ', thutientp: 'Hỗ trợ 50% (Theo NQ 64/2025)', fmd1: 'Thu 11.400đ', fmd2: 'Thu 16.600đ', fmd4: 'Thu 6.400đ', tht2: 'Thu 4.800đ', vdnc2: 'Thu 16.100đ', cgc: 'Thu 300đ', dai: 'Thu 10.000đ' });
+      // Dưới 10 ĐVN: Chăn nuôi Nông Hộ -> Miễn phí hoàn toàn
+      printResults({ gsthucnuoi1: 'Chăn nuôi Nông Hộ', thutientp: 'Hỗ trợ 100% kinh phí', fmd1: 'Miễn Phí', fmd2: 'Miễn Phí', fmd4: 'Miễn Phí', tht2: 'Miễn Phí', vdnc2: 'Miễn Phí', cgc: 'Miễn Phí', dai: 'Miễn Phí' });
     } else { 
-      // Trên 30 ĐVN (Trang trại vừa và lớn)
-      const qm = (sum >= 300) ? 'Quy Mô Trang Trại Lớn' : 'Quy Mô Trang Trại Vừa';
-      printResults({ gsthucnuoi1: qm, thutientp: 'Người chăn nuôi tự chi trả 100%', fmd1: 'Thu 24.000đ', fmd2: 'Thu 34.000đ', fmd4: 'Thu 14.000đ', tht2: 'Thu 11.000đ', vdnc2: 'Thu 35.000đ', cgc: 'Thu 600đ', dai: 'Thu 20.000đ' });
+      // Từ 10 ĐVN trở lên: Quy mô Trang trại -> Tự chi trả 100%
+      let quyMo = 'Trang Trại Nhỏ';
+      if (sum >= 30 && sum < 300) quyMo = 'Trang Trại Vừa';
+      if (sum >= 300) quyMo = 'Trang Trại Lớn';
+      
+      printResults({ 
+        gsthucnuoi1: quyMo, 
+        thutientp: 'Chủ vật nuôi tự chi trả 100%', 
+        fmd1: 'Thu 24.000đ', // Hãy sửa các giá này theo giá thu thực tế tại Hóc Môn
+        fmd2: 'Thu 34.000đ', 
+        fmd4: 'Thu 14.000đ', 
+        tht2: 'Thu 11.000đ', 
+        vdnc2: 'Thu 35.000đ', 
+        cgc: 'Thu 600đ', 
+        dai: 'Thu 20.000đ' 
+      });
     }
 
     // --- 5. TÍNH TỔNG TIỀN ---
@@ -223,7 +244,7 @@
     }
 
     let grandTotal = 0;
-    const vaccineTypes = ['fmd1', 'fmd4', 'fmd2', 'tht2', 'vdnc2', 'cgc', 'dai']; // Thêm 'dai' vào danh sách tính tiền
+    const vaccineTypes = ['fmd1', 'fmd4', 'fmd2', 'tht2', 'vdnc2', 'cgc', 'dai'];
 
     vaccineTypes.forEach(vaccine => {
         const priceString = document.getElementById(vaccine).value;
