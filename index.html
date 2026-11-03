@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>HÓC MÔN-THU TIÊM PHÒNG</title>
+</head>
+<style>
+  body { font-family: sans-serif; }
+  label { width: 160px; font-weight: 500; }
+  button[type="submit"] { padding: 5px 40px; }
+  input { width: 150px; margin-bottom: 5px; }
+  .results-group h5 { color: #0056b3; margin-top: 1rem; border-bottom: 2px solid #0056b3; padding-bottom: 5px; }
+  .total-row input { font-weight: bold; color: red; }
+  .results-summary { background-color: #e9ecef; padding: 20px 15px; border-radius: 8px; border: 1px solid #dee2e6; }
+  .results-summary label { font-weight: bold; color: #495057; }
+  .results-summary input[disabled] { font-weight: bold; color: #0056b3; background-color: #fff; opacity: 1; cursor: default; }
+</style>
+<body>
+  <div class="container-sm mt-3">
+    <h3 class="mb-3" style="color:RED">TÍNH ĐƠN VỊ VẬT NUÔI & CHI PHÍ TIÊM PHÒNG</h3>
+    
+    <div class="row heo">
+      <div class="col-md-4 col-sm-6"><label for="heo1">Heo < 28 ngày</label><input id="heo1" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="heo5">Heo cai sữa</label><input id="heo5" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="heo6">Heo hậu bị Đực+Cái</label><input id="heo6" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="heo2">Heo Thịt</label><input id="heo2" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="heo3">Heo Nái</label><input id="heo3" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="heo4">Heo Nọc</label><input id="heo4" type="number" min="0" oninput="sumOfNbr()"></div>
+    </div>
+    <hr>
+    <div class="row bo">
+      <div class="col-md-4 col-sm-6"><label for="bo1">Bê (dưới 6tháng)</label><input id="bo1" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="bo2">Bò Sữa</label><input id="bo2" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="bo3">Bò lai hướng Thịt</label><input id="bo3" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="bo4">Bò lai SinD, bò nội</label><input id="bo4" type="number" min="0" oninput="sumOfNbr()"></div>
+    </div>
+    <hr>
+    <div class="row trau">
+      <div class="col-md-4 col-sm-6"><label for="trau1">Nghé</label><input id="trau1" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="trau2">Trâu</label><input id="trau2" type="number" min="0" oninput="sumOfNbr()"></div>
+    </div>
+    <hr>
+    <div class="row de cuu">
+      <div class="col-md-4 col-sm-6"><label for="de">Dê</label><input id="de" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="cuu">Cừu</label><input id="cuu" type="number" min="0" oninput="sumOfNbr()"></div>
+    </div>
+    <hr>
+    <!-- THÊM GIA CẦM -->
+    <div class="row giacam">
+      <div class="col-md-4 col-sm-6"><label for="ga">Gà</label><input id="ga" type="number" min="0" oninput="sumOfNbr()"></div>
+      <div class="col-md-4 col-sm-6"><label for="vit">Vịt/Ngan/Ngỗng</label><input id="vit" type="number" min="0" oninput="sumOfNbr()"></div>
+    </div>
+    <hr>
+
+    <div class="row results results-summary">
+      <div class="col-lg-3 col-sm-6"><label for="sum2">TỔNG ĐÀN GIA SÚC:</label><input id="sum2" type="text" disabled></div>
+      <div class="col-lg-3 col-sm-6"><label for="sum3">TỔNG ĐÀN GIA CẦM:</label><input id="sum3" type="text" disabled></div> <!-- Thêm hiển thị tổng gia cầm -->
+      <div class="col-lg-3 col-sm-6"><label for="sum">Đơn Vị Vật Nuôi:</label><input id="sum" type="text" disabled></div>
+      <div class="col-lg-3 col-sm-6"><label for="gsthucnuoi1">QUY MÔ CHĂN NUÔI:</label><input id="gsthucnuoi1" type="text" disabled></div>
+      <div class="col-lg-3 col-sm-6"><label for="thutientp">Chính sách thu:</label><input id="thutientp" type="text" disabled></div>
+    </div>
+    <hr>
+    
+    <div class="results-group">
+      <h5>🐷 Heo</h5>
+      <div class="row">
+        <div class="col-md-3 col-6"><label for="fmd1">Đơn giá FMD:</label><input id="fmd1" type="text" disabled></div>
+        <div class="col-md-3 col-6"><label for="fmd1_qty">Số lượng tiêm:</label><input id="fmd1_qty" type="number" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-3 col-6"><label for="fmd1_total">Thành tiền:</label><input id="fmd1_total" type="text" disabled></div>
+      </div>
+      
+      <h5>🐐 Dê Cừu</h5>
+      <div class="row">
+        <div class="col-md-3 col-6"><label for="fmd4">Đơn giá FMD:</label><input id="fmd4" type="text" disabled></div>
+        <div class="col-md-3 col-6"><label for="fmd4_qty">Số lượng tiêm:</label><input id="fmd4_qty" type="number" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-3 col-6"><label for="fmd4_total">Thành tiền:</label><input id="fmd4_total" type="text" disabled></div>
+      </div>
+      
+      <h5>🐮 Trâu Bò</h5>
+      <div class="row">
+        <div class="col-md-3 col-6"><label for="fmd2">Đơn giá FMD:</label><input id="fmd2" type="text" disabled></div>
+        <div class="col-md-3 col-6"><label for="fmd2_qty">Số lượng tiêm:</label><input id="fmd2_qty" type="number" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-3 col-6"><label for="fmd2_total">Thành tiền:</label><input id="fmd2_total" type="text" disabled></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-6"><label for="tht2">Đơn giá THT:</label><input id="tht2" type="text" disabled></div>
+        <div class="col-md-3 col-6"><label for="tht2_qty">Số lượng tiêm:</label><input id="tht2_qty" type="number" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-3 col-6"><label for="tht2_total">Thành tiền:</label><input id="tht2_total" type="text" disabled></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-6"><label for="vdnc2">Đơn giá VDNC:</label><input id="vdnc2" type="text" disabled></div>
+        <div class="col-md-3 col-6"><label for="vdnc2_qty">Số lượng tiêm:</label><input id="vdnc2_qty" type="number" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-3 col-6"><label for="vdnc2_total">Thành tiền:</label><input id="vdnc2_total" type="text" disabled></div>
+      </div>
+
+      <!-- THÊM GIA CẦM -->
+      <h5>🐔🦆 Gia Cầm</h5>
+      <div class="row">
+        <div class="col-md-3 col-6"><label for="cgc">Đơn giá Cúm GC:</label><input id="cgc" type="text" disabled></div>
+        <div class="col-md-3 col-6"><label for="cgc_qty">Số lượng tiêm:</label><input id="cgc_qty" type="number" min="0" oninput="sumOfNbr()"></div>
+        <div class="col-md-3 col-6"><label for="cgc_total">Thành tiền:</label><input id="cgc_total" type="text" disabled></div>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="row my-4 justify-content-end total-row">
+        <div class="col-md-4 col-8">
+            <label for="grand_total" style="color:red; font-size: 1.2em;">TỔNG CỘNG:</label>
+            <input id="grand_total" type="text" disabled style="font-size: 1.2em;">
+        </div>
+    </div>
+  </div>
+
+<script>
+  function printResults(result) {
+    Object.keys(result).forEach(key => {
+      if (document.getElementById(key)) {
+        document.getElementById(key).value = result[key];
+      }
+    });
+  }
+  
+  function sumOfNbr() {
+    const getValue = id => Number(document.getElementById(id).value) || 0;
+    
+    // Cập nhật ĐVN cho gia cầm
+    const dvn = {
+      heo1: getValue("heo1") * 0.016, heo2: getValue("heo2") * 0.2, heo3: getValue("heo3") * 0.5,
+      heo4: getValue("heo4") * 0.6, heo5: getValue("heo5") * 0.2, heo6: getValue("heo6") * 0.2,
+      bo1: getValue("bo1") * 0.2, bo2: getValue("bo2") * 1, bo3: getValue("bo3") * 0.7,
+      bo4: getValue("bo4") * 0.34, trau1: getValue("trau1") * 0.24, trau2: getValue("trau2") * 0.7,
+      de: getValue("de") * 0.05, cuu: getValue("cuu") * 0.06,
+      ga: getValue("ga") * 0.004, vit: getValue("vit") * 0.004 // Thêm hệ số gia cầm
+    };
+
+    const sum = Object.values(dvn).reduce((a, b) => a + b, 0);
+    document.getElementById("sum").value = Math.round(sum * 100) / 100;
+
+    const totalHeo = getValue("heo1") + getValue("heo2") + getValue("heo3") + getValue("heo4") + getValue("heo5") + getValue("heo6");
+    const totalTrauBo = getValue("bo1") + getValue("bo2") + getValue("bo3") + getValue("bo4") + getValue("trau1") + getValue("trau2");
+    const totalDeCuu = getValue("de") + getValue("cuu");
+    const totalGiaCam = getValue("ga") + getValue("vit");
+
+    document.getElementById("sum2").value = totalHeo + totalTrauBo + totalDeCuu;
+    document.getElementById("sum3").value = totalGiaCam; // Hiển thị tổng gia cầm
+
+    function validateQuantity(inputId, max, animalName) {
+        const inputElement = document.getElementById(inputId);
+        if (getValue(inputId) > max) {
+            alert(`⚠️ Số lượng tiêm (${getValue(inputId)}) không được lớn hơn tổng đàn ${animalName} (${max}).`);
+            inputElement.value = max;
+        }
+    }
+    
+    validateQuantity('fmd1_qty', totalHeo, 'Heo');
+    validateQuantity('fmd4_qty', totalDeCuu, 'Dê Cừu');
+    validateQuantity('fmd2_qty', totalTrauBo, 'Trâu Bò');
+    validateQuantity('tht2_qty', totalTrauBo, 'Trâu Bò');
+    validateQuantity('vdnc2_qty', totalTrauBo, 'Trâu Bò');
+    validateQuantity('cgc_qty', totalGiaCam, 'Gia Cầm'); // Kiểm tra số lượng tiêm gia cầm
+
+    // Cập nhật giá tiêm Cúm gia cầm (Giả định giá, bạn cần điều chỉnh theo thực tế)
+    if (sum === 0) {
+      printResults({ gsthucnuoi1: '', thutientp: '', fmd1: '', fmd2: '', fmd4: '', tht2: '', vdnc2: '', cgc: '' });
+    } else if (sum < 10) {
+      printResults({ gsthucnuoi1: 'Nông Hộ', thutientp: 'Miễn Phí 100%', fmd1: 'Miễn Phí', fmd2: 'Miễn Phí', fmd4: 'Miễn Phí', tht2: 'Miễn Phí', vdnc2: 'Miễn Phí', cgc: 'Miễn Phí' });
+    } else if (sum >= 10 && sum < 30) {
+      printResults({ gsthucnuoi1: 'QM Nhỏ', thutientp: 'Thu 50%', fmd1: 'Thu 11.400đ', fmd2: 'Thu 16.600đ', fmd4: 'Thu 6.400đ', tht2: 'Thu 4.800đ', vdnc2: 'Thu 16.100đ', cgc: 'Thu 300đ' });
+    } else if (sum >= 30 && sum < 300) {
+      printResults({ gsthucnuoi1: 'QM Vừa', thutientp: 'Thu 100%', fmd1: 'Thu 24.000đ', fmd2: 'Thu 34.000đ', fmd4: 'Thu 14.000đ', tht2: 'Thu 11.000đ', vdnc2: 'Thu 35.000đ', cgc: 'Thu 600đ' });
+    } else { 
+      printResults({ gsthucnuoi1: 'QM Lớn', thutientp: 'Thu 100%', fmd1: 'Thu 24.000đ', fmd2: 'Thu 34.000đ', fmd4: 'Thu 14.000đ', tht2: 'Thu 11.000đ', vdnc2: 'Thu 35.000đ', cgc: 'Thu 600đ' });
+    }
+
+    function parsePrice(priceString) {
+      if (!priceString || priceString.toLowerCase().includes('miễn phí')) return 0;
+      return Number(priceString.replace(/\D/g, ''));
+    }
+
+    function formatCurrency(number) {
+        if (isNaN(number) || number === 0) return '0 đ';
+        return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    }
+
+    let grandTotal = 0;
+    const vaccineTypes = ['fmd1', 'fmd4', 'fmd2', 'tht2', 'vdnc2', 'cgc']; // Thêm biến vắc-xin Cúm GC
+
+    vaccineTypes.forEach(vaccine => {
+        const priceString = document.getElementById(vaccine).value;
+        const pricePerHead = parsePrice(priceString);
+        const quantity = getValue(vaccine + '_qty');
+        const totalCost = pricePerHead * quantity;
+        grandTotal += totalCost;
+        document.getElementById(vaccine + '_total').value = formatCurrency(totalCost);
+    });
+
+    document.getElementById('grand_total').value = formatCurrency(grandTotal);
+  }
+
+  window.onload = sumOfNbr;
+</script>
+</body>
+</html>
